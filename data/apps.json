@@ -1,0 +1,20 @@
+{"data":[{
+	"name":"SW Atrio", 
+	"package":"br.com.multilaser.swatrio", 
+	"tests":[
+		{"name":"Open App", 
+		"commands":["adb shell monkey -p br.com.multilaser.swatrio -v 1"]
+		}
+		]
+		},{
+	"name":"SW Atrio Plus", 
+	"package":"br.com.multilaser.swatrio1", 
+	"tests":[
+		{"name":"Open App", 
+		"commands":["adb shell monkey -p br.com.multilaser.swatrio -v 1"]
+		},
+		{"name":"Close App", 
+		"commands":["adb shell monkey -p br.com.multilaser.swatrio -v 1"]
+		}
+		]
+		}]}
