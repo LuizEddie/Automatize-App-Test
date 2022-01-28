@@ -1,7 +1,8 @@
 {"data":[{
 	"id": 0,
 	"name":"SW Atrio", 
-	"package":"br.com.multilaser.swatrio", 
+	"package":"br.com.multilaser.swatrio",
+	"original_res":{"x": 1080, "y":2400}, 
 	"tests":[
 			{
 			"id": 0,

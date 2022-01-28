@@ -22,3 +22,6 @@ class ListApps:
 
     def get_commands(self, id, test_id):
         return self.model.get_commands(id, test_id)
+
+    def add_app(self, app_data):
+        self.model.add_app(app_data)

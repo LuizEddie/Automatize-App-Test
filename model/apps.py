@@ -8,7 +8,35 @@ class ListApps:
     json_dir = "data"
     json_file = "apps.json"
     path = "{}/{}".format(json_dir, json_file)
-    json_structure = '{"data":[{"id": 0, "name":"example", "package":"example.example", "tests":[{"id": 0, "name":"example", "commands":[]}]}]}'
+    json_structure = '{"data":[{' \
+                            '"id": 0, ' \
+                            '"name":"example", ' \
+                            '"original_res":{"x": 1080, ' \
+                                            '"y": 2400}, ' \
+                            '"package":"example.example", ' \
+                            '"tests":[{' \
+                                    '"id": 0, ' \
+                                    '"name":"example", ' \
+                                    '"commands":[{' \
+                                                '"id": 0, ' \
+                                                '"command": "adb shell input touchscreen tap",' \
+                                                '"x":0,'\
+                                                '"y":0' \    
+                                                '},' \
+                                                '{' \
+                                                '"id": 0, ' \
+                                                '"command": "adb shell input touchscreen swipe",' \
+                                                '"x1":0,'\
+                                                '"y1":0,' \
+                                                '"x2":0,' \
+                                                '"y2":0' \    
+                                                '},' \
+                                                '{' \
+                                                '"id": 0, ' \
+                                                '"command": "adb shell input touchscreen swipe",' \
+                                    '}] ' \
+                            '}]' \
+                        '}]}'
 
     def create_json_file(self):
         file = open(self.path, "x")
@@ -29,7 +57,7 @@ class ListApps:
         data = json.load(file)
         apps = []
         for dt in data['data']:
-            apps.append({"id": dt['id'],"name": dt['name'], "package": dt['package']})
+            apps.append({"id": dt['id'], "name": dt['name'], "original_res":dt["original_res"], "package": dt['package']})
         file.close()
         return apps
 
@@ -60,5 +88,23 @@ class ListApps:
         test = list(filter(lambda x:x["id"] == test_id, tests))
         return test[0]['commands']
 
-    def edit_app(self):
-        pass
+    def add_app(self, app_data):
+        file = open(self.path, "r", encoding="utf8")
+        data = json.load(file)
+        file.close()
+
+        data["data"].append(app_data)
+
+        file = open(self.path, "w")
+        json.dump(data, file, indent=4, separators=(',', ':'))
+
+    def res_calc(self, id, res):
+        data = self.get_apps()
+        app_data = list(filter(lambda x: x["id"] == id, data))
+        original_res = app_data[0]["original_res"]
+        x = (res["x"] * 100)/original_res["x"]
+        y = (res["y"] * 100)/original_res["y"]
+        diff_per_x = x * 0.01
+        diff_per_y = y * 0.01
+        ref_resolution_calc = {"x": diff_per_x, "y": diff_per_y}
+        return ref_resolution_calc
