@@ -1,20 +1,95 @@
 {"data":[{
+	"id": 0,
 	"name":"SW Atrio", 
 	"package":"br.com.multilaser.swatrio", 
 	"tests":[
-		{"name":"Open App", 
-		"commands":["adb shell monkey -p br.com.multilaser.swatrio -v 1"]
-		}
-		]
-		},{
-	"name":"SW Atrio Plus", 
-	"package":"br.com.multilaser.swatrio1", 
-	"tests":[
-		{"name":"Open App", 
-		"commands":["adb shell monkey -p br.com.multilaser.swatrio -v 1"]
-		},
-		{"name":"Close App", 
-		"commands":["adb shell monkey -p br.com.multilaser.swatrio -v 1"]
-		}
-		]
-		}]}
+			{
+			"id": 0,
+			"name":"Turn On Bluetooth using Smartphone", 
+			"commands":["adb shell input touchscreen swipe 342 34 342 609",
+				"adb shell input tap 480 373",
+				"adb shell input touchscreen swipe 342 609 342 34",
+				"adb shell input tap 750 226"
+			]
+			},
+			{
+			"id": 1,
+			"name":"Turn Off Bluetooth using Smartphone", 
+			"commands":["adb shell input touchscreen swipe 342 34 342 609",
+				"adb shell input tap 480 373",
+				"adb shell input touchscreen swipe 342 609 342 34",
+				"adb shell input touchscreen swipe 342 609 342 34"
+			]
+			},
+			{
+			"id": 2,
+			"name":"Turn On/Off GPS using Smartphone", 
+			"commands":["adb shell input touchscreen swipe 342 34 342 609",
+				"adb shell input tap 660 362",
+				"adb shell input touchscreen swipe 342 609 342 34",
+				"adb shell input touchscreen swipe 342 609 342 34"]
+			},
+			{
+			"id": 3,
+			"name":"Open App", 
+			"commands":["adb shell monkey -p br.com.multilaser.swatrio -v 1"]
+			},
+			{
+			"id": 4,
+			"name": "First Profile fulfillment",
+			"commands":["adb shell input tap 611 2033",
+				"adb shell input tap 566 632",
+				"adb shell input tap 86 1737",
+				"adb shell input tap 86 1737",
+				"adb shell input tap 86 1737",
+				"adb shell input tap 86 1737",
+				"adb shell input tap 86 1737",
+				"adb shell input tap 1002 849",
+				"adb shell input touchscreen swipe 903 1750 903 1560",
+				"adb shell input tap 977 2159",
+				"adb shell input tap 1002 967",
+				"adb shell input touchscreen swipe 644 1755 644 1100",
+				"adb shell input touchscreen swipe 318 1755 318 1100",
+				"adb shell input touchscreen swipe 960 1755 960 1100",
+				"adb shell input tap 977 2159",
+				"adb shell input tap 1002 1128",
+				"adb shell input touchscreen swipe 318 1755 318 1100",
+				"adb shell input touchscreen swipe 644 1755 644 1100",
+				"adb shell input tap 977 2159",
+				"adb shell input tap 1002 1285",
+				"adb shell input touchscreen swipe 318 1755 318 1100",
+				"adb shell input touchscreen swipe 644 1755 644 1100",
+				"adb shell input tap 977 2159",
+				"adb shell input tap 1000 177",
+				"adb shell input tap 611 1893",
+				"adb shell input tap 611 2033",
+				"adb shell input tap 611 2033",
+				"adb shell input tap 611 2033",
+				"adb shell input tap 611 2033",
+				"adb shell input tap 611 2033"
+				]},
+			{
+			"id": 5,	
+			"name":"Turn On GPS using App", 
+				"commands":["adb shell input tap 907 1452",
+					"adb shell input tap 957 395",
+					"adb shell input tap 110 217",
+					"adb shell input touchscreen swipe 250 2391 259 2000"]
+			},
+			{
+			"id": 6,
+			"name":"Pair Smartwatch(The selection of smartwatch must be manual)", 
+				"commands":["adb shell input tap 970 2288",
+					"adb shell input tap 813 1944"]
+			},
+			{
+			"id": 7,
+			"name": "Kill App and its Data",
+				"commands":["adb shell pm clear br.com.multilaser.swatrio"]
+			},{
+			"id": 8,
+				"name": "Close App",
+				"commands":["adb shell am force-stop br.com.multilaser.swatrio"]
+			}]
+	}]
+}
